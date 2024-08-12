@@ -5,6 +5,6 @@ data class ScreenDataModel(
     val screenTitle: String,
     val screenDescription: String,
     val screenIcon: Int,
-    val color: Int,
+    val itemColor: Int,
     val screenDestination: String
 )

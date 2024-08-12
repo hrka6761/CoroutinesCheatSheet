@@ -1,10 +1,12 @@
 package ir.hrka.coroutines.helpers
 
+import ir.hrka.coroutines.helpers.Constants.BASIC_SCREEN
 import ir.hrka.coroutines.helpers.Constants.MAIN_SCREEN
 
 enum class Screens(private val destination: String) {
 
-    Main(MAIN_SCREEN);
+    Main(MAIN_SCREEN),
+    Basic(BASIC_SCREEN);
 
 
     operator fun invoke() = destination

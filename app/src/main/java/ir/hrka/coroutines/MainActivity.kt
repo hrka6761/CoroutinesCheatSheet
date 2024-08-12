@@ -3,15 +3,17 @@ package ir.hrka.coroutines
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import dagger.hilt.android.AndroidEntryPoint
 import ir.hrka.coroutines.ui.theme.CoroutinesTheme
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContent {
             CoroutinesTheme {
-                MainContainer(activity = this)
+                MainContainer()
             }
         }
 

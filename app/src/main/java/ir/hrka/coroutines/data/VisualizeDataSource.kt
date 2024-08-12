@@ -1,6 +1,7 @@
 package ir.hrka.coroutines.data
 
 import ir.hrka.coroutines.R
+import ir.hrka.coroutines.helpers.Screens.Basic
 
 class VisualizeDataSource {
 
@@ -10,12 +11,12 @@ class VisualizeDataSource {
     init {
         screens.add(
             ScreenDataModel(
-                1,
-                "Basic",
-                "Describe simple coroutine",
-                R.drawable.basic,
-                R.color.basic_item_color,
-                ""
+                id = 1,
+                screenTitle = "Basic",
+                screenDescription = "Describe simple coroutine",
+                screenIcon = R.drawable.basic,
+                itemColor = R.color.basic_item_color,
+                screenDestination = Basic()
             )
         )
     }
