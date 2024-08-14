@@ -19,6 +19,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -40,7 +41,7 @@ fun MainScreen(
     Scaffold(
         topBar = {
             AppBar(
-                title = "Coroutines visualizer",
+                title = stringResource(R.string.main_app_bar_title),
                 hasNavigationIcon = false,
                 navHostController = navHostController,
                 backgroundColor = R.color.white
@@ -63,7 +64,7 @@ fun MainScreen(
                 items(dataSource.getMainScreenItemsSize()) {
                     ScreenItem(
                         navHostController = navHostController,
-                        screenData = dataSource.getMainScreenItems()[it]
+                        itemData = dataSource.getMainScreenItems()[it]
                     )
                 }
             }
@@ -74,15 +75,15 @@ fun MainScreen(
 @Composable
 fun ScreenItem(
     navHostController: NavHostController,
-    screenData: ScreenDataModel
+    itemData: ScreenDataModel
 ) {
     ElevatedCard(
         modifier = Modifier
             .fillMaxSize()
             .padding(8.dp)
-            .clickable { navHostController.navigate(screenData.screenDestination) },
+            .clickable { navHostController.navigate(itemData.screenDestination) },
         colors = CardDefaults.elevatedCardColors(
-            containerColor = colorResource(id = screenData.itemColor)
+            containerColor = colorResource(id = itemData.itemColor)
         ),
         elevation = CardDefaults.elevatedCardElevation(8.dp)
     ) {
@@ -90,13 +91,13 @@ fun ScreenItem(
             modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 16.dp),
             fontWeight = FontWeight.Bold,
             fontSize = 24.sp,
-            text = screenData.screenTitle
+            text = itemData.screenTitle
         )
         Text(
             modifier = Modifier.padding(start = 16.dp, end = 16.dp),
             fontSize = 12.sp,
             style = TextStyle(lineHeight = 12.sp),
-            text = screenData.screenDescription
+            text = itemData.screenDescription
         )
         Row(
             modifier = Modifier.fillMaxWidth(),
@@ -105,7 +106,7 @@ fun ScreenItem(
         ) {
             Icon(
                 modifier = Modifier.padding(16.dp),
-                painter = painterResource(id = screenData.screenIcon),
+                painter = painterResource(id = itemData.screenIcon),
                 contentDescription = ""
             )
         }
